@@ -1,1 +1,334 @@
-<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"><style type="text/css">ol{margin:0;padding:0}table td,table th{padding:0}.c0{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c1{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c3{background-color:#ffffff;max-width:451.4pt;padding:72pt 72pt 72pt 72pt}.c2{height:11pt}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style></head><body class="c3 doc-content"><p class="c1"><span class="c0">&lt;!DOCTYPE html&gt;</span></p><p class="c1"><span class="c0">&lt;html lang=&quot;pt-BR&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;head&gt;</span></p><p class="c1"><span class="c0">&lt;meta charset=&quot;UTF-8&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;title&gt;AI Creator | Gerador de Apps e Sites&lt;/title&gt;</span></p><p class="c1"><span class="c0">&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</span></p><p class="c1"><span class="c0">&lt;link href=&quot;https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;script&gt;</span></p><p class="c1"><span class="c0">tailwind.config = {</span></p><p class="c1"><span class="c0">&nbsp; darkMode: &#39;class&#39;,</span></p><p class="c1"><span class="c0">&nbsp; theme: {</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; extend: {</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; colors: {</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; primary: {50:&#39;#eff6ff&#39;,500:&#39;#3b82f6&#39;,600:&#39;#2563eb&#39;,700:&#39;#1d4ed8&#39;},</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; accent: {500:&#39;#ec4899&#39;,600:&#39;#db2777&#39;},</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; dark: {800:&#39;#1f2937&#39;,900:&#39;#111827&#39;,950:&#39;#030712&#39;}</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; },</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; fontFamily: {</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; sans: [&#39;Inter&#39;,&#39;system-ui&#39;,&#39;sans-serif&#39;],</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; display: [&#39;Plus Jakarta Sans&#39;,&#39;sans-serif&#39;]</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; },</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; boxShadow: {</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &#39;glow&#39;: &#39;0 0 20px rgba(59,130,246,0.3)&#39;,</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &#39;glow-accent&#39;: &#39;0 0 20px rgba(236,72,153,0.3)&#39;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; }</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; }</span></p><p class="c1"><span class="c0">&nbsp; }</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">&lt;/script&gt;</span></p><p class="c1"><span class="c0">&lt;style&gt;</span></p><p class="c1"><span class="c0">body{font-family:system-ui,sans-serif;}</span></p><p class="c1"><span class="c0">.step-panel{transition:all 0.4s cubic-bezier(0.4,0,0.2,1);opacity:0;transform:translateY(20px);}</span></p><p class="c1"><span class="c0">.step-panel.active{opacity:1;transform:translateY(0);}</span></p><p class="c1"><span class="c0">.glass{background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);}</span></p><p class="c1"><span class="c0">.text-gradient{background-clip:text;-webkit-background-clip:text;color:transparent;background-image:linear-gradient(135deg,#3b82f6,#ec4899);}</span></p><p class="c1"><span class="c0">.typing-dot{animation:typing 1.4s infinite;}</span></p><p class="c1"><span class="c0">.typing-dot:nth-child(2){animation-delay:0.2s;}</span></p><p class="c1"><span class="c0">.typing-dot:nth-child(3){animation-delay:0.4s;}</span></p><p class="c1"><span class="c0">@keyframes typing{0%,100%{opacity:0.2;}50%{opacity:1;}}</span></p><p class="c1"><span class="c0">&lt;/style&gt;</span></p><p class="c1"><span class="c0">&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;</span></p><p class="c1"><span class="c0">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;/head&gt;</span></p><p class="c1"><span class="c0">&lt;body class=&quot;dark bg-dark-950 text-white min-h-screen font-sans&quot;&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;div class=&quot;fixed inset-0 overflow-hidden pointer-events-none&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-600/10 rounded-full blur-3xl&quot;&gt;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-3xl&quot;&gt;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/div&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;header class=&quot;relative z-10 border-b border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;max-w-7xl mx-auto px-4 py-4 flex items-center justify-between&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div class=&quot;flex items-center gap-2&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div class=&quot;w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-magic text-lg&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h1 class=&quot;font-bold text-lg&quot;&gt;AI Creator&lt;/h1&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-xs text-gray-400&quot;&gt;Gerador Inteligente de Apps &amp; Sites&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;span class=&quot;px-3 py-1 rounded-full bg-primary-600/20 text-primary-400 text-xs font-medium&quot;&gt;v2.0&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/header&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;main class=&quot;relative z-10 max-w-7xl mx-auto px-4 py-8&quot;&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;div class=&quot;mb-8&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;flex justify-between mb-2 text-sm text-gray-400&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;span id=&quot;progressText&quot;&gt;Passo 1 de 4 &mdash; Tipo de Projeto&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;span id=&quot;progressPercent&quot;&gt;25%&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;h-2 bg-white/10 rounded-full overflow-hidden&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div id=&quot;progressBar&quot; class=&quot;h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-500&quot; style=&quot;width:25%&quot;&gt;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/div&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;div id=&quot;aiAssistant&quot; class=&quot;mb-8 glass rounded-2xl p-5 max-w-3xl mx-auto&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;flex items-start gap-3&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div class=&quot;w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-robot&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;p class=&quot;font-semibold text-sm text-primary-400 mb-1&quot;&gt;Assistente AI&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;p id=&quot;aiMessage&quot; class=&quot;text-gray-300&quot;&gt;Ol&aacute;! &#128075; Vou te ajudar a criar seu projeto. Escolha abaixo o que deseja desenvolver!&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/div&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;section id=&quot;step1&quot; class=&quot;step-panel active max-w-3xl mx-auto&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;h2 class=&quot;text-2xl font-bold mb-6 text-center&quot;&gt;O que vamos criar?&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;grid md:grid-cols-3 gap-4 mb-8&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;cursor-pointer&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;input type=&quot;radio&quot; name=&quot;tipo&quot; value=&quot;site&quot; class=&quot;hidden peer&quot; checked&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div class=&quot;p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-primary-500 peer-checked:bg-primary-500/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-globe text-3xl text-primary-400 mb-3&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;font-bold text-lg mb-1&quot;&gt;Site Responsivo&lt;/h3&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-sm text-gray-400&quot;&gt;Landing page, portf&oacute;lio&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;cursor-pointer&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;input type=&quot;radio&quot; name=&quot;tipo&quot; value=&quot;app&quot; class=&quot;hidden peer&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div class=&quot;p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-accent-500 peer-checked:bg-accent-500/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-mobile-phone text-3xl text-accent-400 mb-3&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;font-bold text-lg mb-1&quot;&gt;App M&oacute;vel&lt;/h3&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-sm text-gray-400&quot;&gt;PWA &mdash; instala&ccedil;&atilde;o em celular&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;cursor-pointer&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;input type=&quot;radio&quot; name=&quot;tipo&quot; value=&quot;ambos&quot; class=&quot;hidden peer&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div class=&quot;p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-cubes text-3xl text-indigo-400 mb-3&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;font-bold text-lg mb-1&quot;&gt;Site + App&lt;/h3&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-sm text-gray-400&quot;&gt;Pacote completo&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;mb-6&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-2&quot;&gt;Nome do Projeto&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;input type=&quot;text&quot; id=&quot;nomeProjeto&quot; placeholder=&quot;Ex: Minha Loja, Portf&oacute;lio...&quot; class=&quot;w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary-500 focus:outline-none&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;button onclick=&quot;avancar(2)&quot; class=&quot;w-full py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 font-semibold&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; Continuar &lt;i class=&quot;fa fa-arrow-right ml-2&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&lt;/section&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;section id=&quot;step2&quot; class=&quot;step-panel hidden max-w-3xl mx-auto&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;h2 class=&quot;text-2xl font-bold mb-6 text-center&quot;&gt;Identidade Visual&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;grid md:grid-cols-2 gap-6 mb-6&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-2&quot;&gt;Cor Principal&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;input type=&quot;color&quot; id=&quot;corPrimaria&quot; value=&quot;#3b82f6&quot; class=&quot;w-full h-12 rounded-lg&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-2&quot;&gt;Cor de Destaque&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;input type=&quot;color&quot; id=&quot;corDestaque&quot; value=&quot;#ec4899&quot; class=&quot;w-full h-12 rounded-lg&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;mb-6&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-3&quot;&gt;Se&ccedil;&otilde;es&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-2 gap-3&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;checkbox&quot; id=&quot;secSobre&quot; checked&gt; &lt;span&gt;Sobre&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;checkbox&quot; id=&quot;secServicos&quot;&gt; &lt;span&gt;Servi&ccedil;os&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;checkbox&quot; id=&quot;secGaleria&quot;&gt; &lt;span&gt;Galeria&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;label class=&quot;flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;checkbox&quot; id=&quot;secContato&quot; checked&gt; &lt;span&gt;Contato&lt;/span&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;flex gap-3&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;voltar(1)&quot; class=&quot;flex-1 py-3 rounded-xl bg-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-arrow-left mr-2&quot;&gt;&lt;/i&gt; Voltar</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;avancar(3)&quot; class=&quot;flex-1 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 font-semibold&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; Continuar &lt;i class=&quot;fa fa-arrow-right ml-2&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/section&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;section id=&quot;step3&quot; class=&quot;step-panel hidden max-w-3xl mx-auto&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;h2 class=&quot;text-2xl font-bold mb-6 text-center&quot;&gt;Conte&uacute;do do Projeto&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;mb-6&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-2&quot;&gt;Descreva seu projeto&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;textarea id=&quot;descricao&quot; rows=&quot;4&quot; placeholder=&quot;Ex: Somos uma marca de moda fitness...&quot; class=&quot;w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary-500 focus:outline-none&quot;&gt;&lt;/textarea&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;mb-6&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;label class=&quot;block text-sm font-medium mb-2&quot;&gt;Estilo&lt;/label&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;select id=&quot;estiloTexto&quot; class=&quot;w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;option value=&quot;profissional&quot;&gt;&#128188; Profissional&lt;/option&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;option value=&quot;moderno&quot;&gt;&#10024; Moderno&lt;/option&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;option value=&quot;amigavel&quot;&gt;&#128522; Amig&aacute;vel&lt;/option&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;option value=&quot;elegante&quot;&gt;&#128081; Elegante&lt;/option&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/select&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;flex gap-3&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;voltar(2)&quot; class=&quot;flex-1 py-3 rounded-xl bg-white/10&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-arrow-left mr-2&quot;&gt;&lt;/i&gt; Voltar</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;gerarProjeto()&quot; id=&quot;btnGerar&quot; class=&quot;flex-1 py-3 rounded-xl bg-gradient-to-r from-accent-500 to-pink-600 font-semibold&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-magic mr-2&quot;&gt;&lt;/i&gt; GERAR PROJETO</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/section&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;section id=&quot;step4&quot; class=&quot;step-panel hidden max-w-3xl mx-auto&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;text-center mb-8&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div class=&quot;w-16 h-16 mx-auto rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-2xl mb-4&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;h2 class=&quot;text-2xl font-bold mb-2&quot;&gt;Projeto Gerado! &#127881;&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;p class=&quot;text-gray-400&quot;&gt;C&oacute;digo pronto para baixar&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;pre id=&quot;codigoFinal&quot; class=&quot;p-4 rounded-xl bg-dark-900 border border-white/10 text-xs overflow-x-auto max-h-[400px] text-green-300 mb-4&quot;&gt;&lt;/pre&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;div class=&quot;grid grid-cols-2 gap-3&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;baixarCodigo()&quot; class=&quot;py-3 rounded-xl bg-primary-600 font-medium&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-download mr-2&quot;&gt;&lt;/i&gt; Baixar .HTML</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;button onclick=&quot;location.reload()&quot; class=&quot;py-3 rounded-xl bg-white/10 font-medium&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-refresh mr-2&quot;&gt;&lt;/i&gt; Novo</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&lt;/section&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;/main&gt;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&lt;script&gt;</span></p><p class="c1"><span class="c0">function avancar(passo){</span></p><p class="c1"><span class="c0">&nbsp; document.querySelectorAll(&#39;.step-panel&#39;).forEach(p=&gt;{p.classList.remove(&#39;active&#39;);p.classList.add(&#39;hidden&#39;);});</span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(`step${passo}`).classList.remove(&#39;hidden&#39;);</span></p><p class="c1"><span class="c0">&nbsp; setTimeout(()=&gt;document.getElementById(`step${passo}`).classList.add(&#39;active&#39;),10);</span></p><p class="c1"><span class="c0">&nbsp; atualizarBarra(passo);</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">function voltar(passo){</span></p><p class="c1"><span class="c0">&nbsp; document.querySelectorAll(&#39;.step-panel&#39;).forEach(p=&gt;{p.classList.remove(&#39;active&#39;);p.classList.add(&#39;hidden&#39;);});</span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(`step${passo}`).classList.remove(&#39;hidden&#39;);</span></p><p class="c1"><span class="c0">&nbsp; setTimeout(()=&gt;document.getElementById(`step${passo}`).classList.add(&#39;active&#39;),10);</span></p><p class="c1"><span class="c0">&nbsp; atualizarBarra(passo);</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">function atualizarBarra(passo){</span></p><p class="c1"><span class="c0">&nbsp; const porcentagens={1:25,2:50,3:75,4:100};</span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(&#39;progressBar&#39;).style.width=porcentagens[passo]+&#39;%&#39;;</span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(&#39;progressPercent&#39;).textContent=porcentagens[passo]+&#39;%&#39;;</span></p><p class="c1"><span class="c0">&nbsp; const textos={1:&#39;Passo 1 de 4&#39;,2:&#39;Passo 2 de 4&#39;,3:&#39;Passo 3 de 4&#39;,4:&#39;Conclu&iacute;do!&#39;};</span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(&#39;progressText&#39;).textContent=textos[passo];</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">async function gerarProjeto(){</span></p><p class="c1"><span class="c0">&nbsp; const btn=document.getElementById(&#39;btnGerar&#39;);</span></p><p class="c1"><span class="c0">&nbsp; btn.innerHTML=&#39;&lt;span class=&quot;typing-dot w-2 h-2 bg-white rounded-full inline-block&quot;&gt;&lt;/span&gt;&lt;span class=&quot;typing-dot w-2 h-2 bg-white rounded-full inline-block&quot;&gt;&lt;/span&gt;&lt;span class=&quot;typing-dot w-2 h-2 bg-white rounded-full inline-block&quot;&gt;&lt;/span&gt; Gerando...&#39;;</span></p><p class="c1"><span class="c0">&nbsp; await new Promise(r=&gt;setTimeout(r,1500));</span></p><p class="c1"><span class="c0">&nbsp; </span></p><p class="c1"><span class="c0">&nbsp; const nome=document.getElementById(&#39;nomeProjeto&#39;).value||&quot;Meu Projeto&quot;;</span></p><p class="c1"><span class="c0">&nbsp; const tipo=document.querySelector(&#39;input[name=&quot;tipo&quot;]:checked&#39;).value;</span></p><p class="c1"><span class="c0">&nbsp; const corP=document.getElementById(&#39;corPrimaria&#39;).value;</span></p><p class="c1"><span class="c0">&nbsp; const corD=document.getElementById(&#39;corDestaque&#39;).value;</span></p><p class="c1"><span class="c0">&nbsp; const desc=document.getElementById(&#39;descricao&#39;).value||&quot;Projeto criado no AI Creator&quot;;</span></p><p class="c1"><span class="c0">&nbsp; const estilo=document.getElementById(&#39;estiloTexto&#39;).value;</span></p><p class="c1"><span class="c0">&nbsp; </span></p><p class="c1"><span class="c0">&nbsp; const assinatura={</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; profissional:&quot;Excel&ecirc;ncia em cada detalhe.&quot;,</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; moderno:&quot;Inova&ccedil;&atilde;o e dinamismo.&quot;,</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; amigavel:&quot;Estamos aqui para te ajudar!&quot;,</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; elegante:&quot;Sofistica&ccedil;&atilde;o e excel&ecirc;ncia.&quot;</span></p><p class="c1"><span class="c0">&nbsp; }[estilo];</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&nbsp; let secoes=&#39;&#39;;</span></p><p class="c1"><span class="c0">&nbsp; if(document.getElementById(&#39;secSobre&#39;).checked) secoes+=`</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;section style=&quot;padding:3rem 1.5rem;max-width:1200px;margin:0 auto;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;h2 style=&quot;font-size:1.875rem;font-weight:bold;margin-bottom:1.5rem;color:${corP}&quot;&gt;Sobre N&oacute;s&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;p style=&quot;font-size:1.125rem;line-height:1.8;&quot;&gt;${desc}&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;p style=&quot;margin-top:1rem;font-weight:600;color:${corD}&quot;&gt;${assinatura}&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/section&gt;`;</span></p><p class="c1"><span class="c0">&nbsp; if(document.getElementById(&#39;secServicos&#39;).checked) secoes+=`</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;section style=&quot;padding:3rem 1.5rem;background:#f9fafb;max-width:1200px;margin:0 auto;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;h2 style=&quot;font-size:1.875rem;font-weight:bold;margin-bottom:2rem;color:${corP}&quot;&gt;Nossos Servi&ccedil;os&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div style=&quot;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;padding:1.5rem;background:white;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;font-size:1.25rem;font-weight:bold;margin-bottom:1rem;color:${corD}&quot;&gt;Servi&ccedil;o 1&lt;/h3&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Descri&ccedil;&atilde;o do seu servi&ccedil;o principal.&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;padding:1.5rem;background:white;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;font-size:1.25rem;font-weight:bold;margin-bottom:1rem;color:${corD}&quot;&gt;Servi&ccedil;o 2&lt;/h3&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Diferencial que voc&ecirc; oferece.&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/section&gt;`;</span></p><p class="c1"><span class="c0">&nbsp; if(document.getElementById(&#39;secGaleria&#39;).checked) secoes+=`</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;section style=&quot;padding:3rem 1.5rem;max-width:1200px;margin:0 auto;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;h2 style=&quot;font-size:1.875rem;font-weight:bold;margin-bottom:2rem;color:${corP}&quot;&gt;Galeria&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;div style=&quot;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;&quot;&gt;&#128247;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;&quot;&gt;&#128247;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;&quot;&gt;&#128247;&lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/section&gt;`;</span></p><p class="c1"><span class="c0">&nbsp; if(document.getElementById(&#39;secContato&#39;).checked) secoes+=`</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;section style=&quot;padding:3rem 1.5rem;max-width:600px;margin:0 auto;text-align:center;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;h2 style=&quot;font-size:1.875rem;font-weight:bold;margin-bottom:1.5rem;color:${corP}&quot;&gt;Entre em Contato&lt;/h2&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;form style=&quot;text-align:left;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; placeholder=&quot;Seu nome&quot; style=&quot;width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;email&quot; placeholder=&quot;Seu e-mail&quot; style=&quot;width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;textarea rows=&quot;4&quot; placeholder=&quot;Sua mensagem&quot; style=&quot;width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;&quot;&gt;&lt;/textarea&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &nbsp; &lt;button type=&quot;submit&quot; style=&quot;width:100%;padding:0.875rem;border-radius:0.5rem;background:linear-gradient(90deg,${corP},${corD});color:white;font-weight:bold;border:none;margin-top:0.5rem;&quot;&gt;Enviar Mensagem&lt;/button&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;/form&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/section&gt;`;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&nbsp; const codigo=`&lt;!DOCTYPE html&gt;</span></p><p class="c1"><span class="c0">&lt;html lang=&quot;pt-BR&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;head&gt;</span></p><p class="c1"><span class="c0">&lt;meta charset=&quot;UTF-8&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;meta name=&quot;theme-color&quot; content=&quot;${corP}&quot;&gt;</span></p><p class="c1"><span class="c0">&lt;title&gt;${nome}&lt;/title&gt;</span></p><p class="c1"><span class="c0">&lt;style&gt;</span></p><p class="c1"><span class="c0">&nbsp; *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}</span></p><p class="c1"><span class="c0">&nbsp; .hero{background:linear-gradient(135deg,${corP},${corD});color:white;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}</span></p><p class="c1"><span class="c0">&nbsp; .btn{display:inline-block;padding:0.875rem 2rem;background:linear-gradient(90deg,${corP},${corD});color:white;border-radius:0.75rem;font-weight:bold;text-decoration:none;margin-top:1.5rem;}</span></p><p class="c1"><span class="c0">&nbsp; footer{padding:2rem;text-align:center;color:#6b7280;border-top:1px solid #eee;margin-top:2rem;}</span></p><p class="c1"><span class="c0">&lt;/style&gt;</span></p><p class="c1"><span class="c0">&lt;/head&gt;</span></p><p class="c1"><span class="c0">&lt;body&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;header class=&quot;hero&quot;&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;h1 style=&quot;font-size:clamp(2rem,5vw,3.5rem);font-weight:bold;margin-bottom:1.5rem;&quot;&gt;${nome}&lt;/h1&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;p style=&quot;font-size:clamp(1rem,2vw,1.25rem);opacity:0.95;max-width:600px;margin:0 auto;&quot;&gt;${desc}&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &nbsp; &lt;a href=&quot;#conteudo&quot; class=&quot;btn&quot;&gt;Conhecer Mais&lt;/a&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;/div&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/header&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;main id=&quot;conteudo&quot;&gt;${secoes}&lt;/main&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;footer&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;p&gt;&amp;copy; ${new Date().getFullYear()} ${nome}&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &nbsp; &lt;p style=&quot;margin-top:0.5rem;font-size:0.875rem;&quot;&gt;Desenvolvido com AI Creator&lt;/p&gt;</span></p><p class="c1"><span class="c0">&nbsp; &lt;/footer&gt;</span></p><p class="c1"><span class="c0">&lt;/body&gt;</span></p><p class="c1"><span class="c0">&lt;/html&gt;`;</span></p><p class="c1 c2"><span class="c0"></span></p><p class="c1"><span class="c0">&nbsp; document.getElementById(&#39;codigoFinal&#39;).textContent=codigo;</span></p><p class="c1"><span class="c0">&nbsp; window._codigoGerado=codigo;</span></p><p class="c1"><span class="c0">&nbsp; btn.innerHTML=&#39;&lt;i class=&quot;fa fa-magic mr-2&quot;&gt;&lt;/i&gt; GERAR PROJETO&#39;;</span></p><p class="c1"><span class="c0">&nbsp; avancar(4);</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">function baixarCodigo(){</span></p><p class="c1"><span class="c0">&nbsp; const blob=new Blob([window._codigoGerado],{type:&#39;text/html;charset=utf-8&#39;});</span></p><p class="c1"><span class="c0">&nbsp; const a=document.createElement(&#39;a&#39;);</span></p><p class="c1"><span class="c0">&nbsp; a.href=URL.createObjectURL(blob);</span></p><p class="c1"><span class="c0">&nbsp; a.download=document.getElementById(&#39;nomeProjeto&#39;).value.replace(/\s+/g,&#39;-&#39;).toLowerCase()+&#39;.html&#39;;</span></p><p class="c1"><span class="c0">&nbsp; a.click();</span></p><p class="c1"><span class="c0">}</span></p><p class="c1"><span class="c0">&lt;/script&gt;</span></p><p class="c1"><span class="c0">&lt;/body&gt;</span></p><p class="c1"><span class="c0">&lt;/html&gt;</span></p><p class="c1 c2"><span class="c0"></span></p></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Creator | Gerador de Apps e Sites</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {50:'#eff6ff',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8'},
+        accent: {500:'#ec4899',600:'#db2777'},
+        dark: {800:'#1f2937',900:'#111827',950:'#030712'}
+      },
+      fontFamily: {
+        sans: ['Inter','system-ui','sans-serif'],
+        display: ['Plus Jakarta Sans','sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+body{font-family:system-ui,sans-serif;}
+.step-panel{transition:all 0.4s cubic-bezier(0.4,0,0.2,1);opacity:0;transform:translateY(20px);}
+.step-panel.active{opacity:1;transform:translateY(0);}
+.glass{background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);}
+.text-gradient{background-clip:text;-webkit-background-clip:text;color:transparent;background-image:linear-gradient(135deg,#3b82f6,#ec4899);}
+.typing-dot{animation:typing 1.4s infinite;}
+.typing-dot:nth-child(2){animation-delay:0.2s;}
+.typing-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes typing{0%,100%{opacity:0.2;}50%{opacity:1;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark bg-dark-950 text-white min-h-screen font-sans">
+
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+  <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-600/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-3xl"></div>
+</div>
+
+<header class="relative z-10 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+        <i class="fa fa-magic text-lg"></i>
+      </div>
+      <div>
+        <h1 class="font-bold text-lg">AI Creator</h1>
+        <p class="text-xs text-gray-400">Gerador Inteligente de Apps & Sites</p>
+      </div>
+    </div>
+    <span class="px-3 py-1 rounded-full bg-primary-600/20 text-primary-400 text-xs font-medium">v2.0</span>
+  </div>
+</header>
+
+<main class="relative z-10 max-w-7xl mx-auto px-4 py-8">
+
+<div class="mb-8">
+  <div class="flex justify-between mb-2 text-sm text-gray-400">
+    <span id="progressText">Passo 1 de 4 — Tipo de Projeto</span>
+    <span id="progressPercent">25%</span>
+  </div>
+  <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+    <div id="progressBar" class="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-500" style="width:25%"></div>
+  </div>
+</div>
+
+<div id="aiAssistant" class="mb-8 glass rounded-2xl p-5 max-w-3xl mx-auto">
+  <div class="flex items-start gap-3">
+    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+      <i class="fa fa-robot"></i>
+    </div>
+    <div>
+      <p class="font-semibold text-sm text-primary-400 mb-1">Assistente AI</p>
+      <p id="aiMessage" class="text-gray-300">Olá! 👋 Vou te ajudar a criar seu projeto. Escolha abaixo o que deseja desenvolver!</p>
+    </div>
+  </div>
+</div>
+
+<section id="step1" class="step-panel active max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-6 text-center">O que vamos criar?</h2>
+  <div class="grid md:grid-cols-3 gap-4 mb-8">
+    <label class="cursor-pointer">
+      <input type="radio" name="tipo" value="site" class="hidden peer" checked>
+      <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-primary-500 peer-checked:bg-primary-500/10">
+        <i class="fa fa-globe text-3xl text-primary-400 mb-3"></i>
+        <h3 class="font-bold text-lg mb-1">Site Responsivo</h3>
+        <p class="text-sm text-gray-400">Landing page, portfólio</p>
+      </div>
+    </label>
+    <label class="cursor-pointer">
+      <input type="radio" name="tipo" value="app" class="hidden peer">
+      <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-accent-500 peer-checked:bg-accent-500/10">
+        <i class="fa fa-mobile-phone text-3xl text-accent-400 mb-3"></i>
+        <h3 class="font-bold text-lg mb-1">App Móvel</h3>
+        <p class="text-sm text-gray-400">PWA — instalação em celular</p>
+      </div>
+    </label>
+    <label class="cursor-pointer">
+      <input type="radio" name="tipo" value="ambos" class="hidden peer">
+      <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10">
+        <i class="fa fa-cubes text-3xl text-indigo-400 mb-3"></i>
+        <h3 class="font-bold text-lg mb-1">Site + App</h3>
+        <p class="text-sm text-gray-400">Pacote completo</p>
+      </div>
+    </label>
+  </div>
+  <div class="mb-6">
+    <label class="block text-sm font-medium mb-2">Nome do Projeto</label>
+    <input type="text" id="nomeProjeto" placeholder="Ex: Minha Loja, Portfólio..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary-500 focus:outline-none">
+  </div>
+  <button onclick="avancar(2)" class="w-full py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 font-semibold">
+    Continuar <i class="fa fa-arrow-right ml-2"></i>
+  </button>
+</section>
+
+<section id="step2" class="step-panel hidden max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-6 text-center">Identidade Visual</h2>
+  <div class="grid md:grid-cols-2 gap-6 mb-6">
+    <div>
+      <label class="block text-sm font-medium mb-2">Cor Principal</label>
+      <input type="color" id="corPrimaria" value="#3b82f6" class="w-full h-12 rounded-lg">
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2">Cor de Destaque</label>
+      <input type="color" id="corDestaque" value="#ec4899" class="w-full h-12 rounded-lg">
+    </div>
+  </div>
+  <div class="mb-6">
+    <label class="block text-sm font-medium mb-3">Seções</label>
+    <div class="grid grid-cols-2 gap-3">
+      <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+        <input type="checkbox" id="secSobre" checked> <span>Sobre</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+        <input type="checkbox" id="secServicos"> <span>Serviços</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+        <input type="checkbox" id="secGaleria"> <span>Galeria</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+        <input type="checkbox" id="secContato" checked> <span>Contato</span>
+      </label>
+    </div>
+  </div>
+  <div class="flex gap-3">
+    <button onclick="voltar(1)" class="flex-1 py-3 rounded-xl bg-white/10">
+      <i class="fa fa-arrow-left mr-2"></i> Voltar
+    </button>
+    <button onclick="avancar(3)" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 font-semibold">
+      Continuar <i class="fa fa-arrow-right ml-2"></i>
+    </button>
+  </div>
+</section>
+
+<section id="step3" class="step-panel hidden max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-6 text-center">Conteúdo do Projeto</h2>
+  <div class="mb-6">
+    <label class="block text-sm font-medium mb-2">Descreva seu projeto</label>
+    <textarea id="descricao" rows="4" placeholder="Ex: Somos uma marca de moda fitness..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary-500 focus:outline-none"></textarea>
+  </div>
+  <div class="mb-6">
+    <label class="block text-sm font-medium mb-2">Estilo</label>
+    <select id="estiloTexto" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10">
+      <option value="profissional">💼 Profissional</option>
+      <option value="moderno">✨ Moderno</option>
+      <option value="amigavel">😊 Amigável</option>
+      <option value="elegante">👑 Elegante</option>
+    </select>
+  </div>
+  <div class="flex gap-3">
+    <button onclick="voltar(2)" class="flex-1 py-3 rounded-xl bg-white/10">
+      <i class="fa fa-arrow-left mr-2"></i> Voltar
+    </button>
+    <button onclick="gerarProjeto()" id="btnGerar" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-accent-500 to-pink-600 font-semibold">
+      <i class="fa fa-magic mr-2"></i> GERAR PROJETO
+    </button>
+  </div>
+</section>
+
+<section id="step4" class="step-panel hidden max-w-3xl mx-auto">
+  <div class="text-center mb-8">
+    <div class="w-16 h-16 mx-auto rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-2xl mb-4">
+      <i class="fa fa-check"></i>
+    </div>
+    <h2 class="text-2xl font-bold mb-2">Projeto Gerado! 🎉</h2>
+    <p class="text-gray-400">Código pronto para baixar</p>
+  </div>
+  <pre id="codigoFinal" class="p-4 rounded-xl bg-dark-900 border border-white/10 text-xs overflow-x-auto max-h-[400px] text-green-300 mb-4"></pre>
+  <div class="grid grid-cols-2 gap-3">
+    <button onclick="baixarCodigo()" class="py-3 rounded-xl bg-primary-600 font-medium">
+      <i class="fa fa-download mr-2"></i> Baixar .HTML
+    </button>
+    <button onclick="location.reload()" class="py-3 rounded-xl bg-white/10 font-medium">
+      <i class="fa fa-refresh mr-2"></i> Novo
+    </button>
+  </div>
+</section>
+
+</main>
+
+<script>
+function avancar(passo){
+  document.querySelectorAll('.step-panel').forEach(p=>{p.classList.remove('active');p.classList.add('hidden');});
+  document.getElementById(`step${passo}`).classList.remove('hidden');
+  setTimeout(()=>document.getElementById(`step${passo}`).classList.add('active'),10);
+  atualizarBarra(passo);
+}
+function voltar(passo){
+  document.querySelectorAll('.step-panel').forEach(p=>{p.classList.remove('active');p.classList.add('hidden');});
+  document.getElementById(`step${passo}`).classList.remove('hidden');
+  setTimeout(()=>document.getElementById(`step${passo}`).classList.add('active'),10);
+  atualizarBarra(passo);
+}
+function atualizarBarra(passo){
+  const porcentagens={1:25,2:50,3:75,4:100};
+  document.getElementById('progressBar').style.width=porcentagens[passo]+'%';
+  document.getElementById('progressPercent').textContent=porcentagens[passo]+'%';
+  const textos={1:'Passo 1 de 4',2:'Passo 2 de 4',3:'Passo 3 de 4',4:'Concluído!'};
+  document.getElementById('progressText').textContent=textos[passo];
+}
+async function gerarProjeto(){
+  const btn=document.getElementById('btnGerar');
+  btn.innerHTML='<span class="typing-dot w-2 h-2 bg-white rounded-full inline-block"></span><span class="typing-dot w-2 h-2 bg-white rounded-full inline-block"></span><span class="typing-dot w-2 h-2 bg-white rounded-full inline-block"></span> Gerando...';
+  await new Promise(r=>setTimeout(r,1500));
+  
+  const nome=document.getElementById('nomeProjeto').value||"Meu Projeto";
+  const tipo=document.querySelector('input[name="tipo"]:checked').value;
+  const corP=document.getElementById('corPrimaria').value;
+  const corD=document.getElementById('corDestaque').value;
+  const desc=document.getElementById('descricao').value||"Projeto criado no AI Creator";
+  const estilo=document.getElementById('estiloTexto').value;
+  
+  const assinatura={
+    profissional:"Excelência em cada detalhe.",
+    moderno:"Inovação e dinamismo.",
+    amigavel:"Estamos aqui para te ajudar!",
+    elegante:"Sofisticação e excelência."
+  }[estilo];
+
+  let secoes='';
+  if(document.getElementById('secSobre').checked) secoes+=`
+    <section style="padding:3rem 1.5rem;max-width:1200px;margin:0 auto;">
+      <h2 style="font-size:1.875rem;font-weight:bold;margin-bottom:1.5rem;color:${corP}">Sobre Nós</h2>
+      <p style="font-size:1.125rem;line-height:1.8;">${desc}</p>
+      <p style="margin-top:1rem;font-weight:600;color:${corD}">${assinatura}</p>
+    </section>`;
+  if(document.getElementById('secServicos').checked) secoes+=`
+    <section style="padding:3rem 1.5rem;background:#f9fafb;max-width:1200px;margin:0 auto;">
+      <h2 style="font-size:1.875rem;font-weight:bold;margin-bottom:2rem;color:${corP}">Nossos Serviços</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+        <div style="padding:1.5rem;background:white;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+          <h3 style="font-size:1.25rem;font-weight:bold;margin-bottom:1rem;color:${corD}">Serviço 1</h3>
+          <p>Descrição do seu serviço principal.</p>
+        </div>
+        <div style="padding:1.5rem;background:white;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+          <h3 style="font-size:1.25rem;font-weight:bold;margin-bottom:1rem;color:${corD}">Serviço 2</h3>
+          <p>Diferencial que você oferece.</p>
+        </div>
+      </div>
+    </section>`;
+  if(document.getElementById('secGaleria').checked) secoes+=`
+    <section style="padding:3rem 1.5rem;max-width:1200px;margin:0 auto;">
+      <h2 style="font-size:1.875rem;font-weight:bold;margin-bottom:2rem;color:${corP}">Galeria</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;">
+        <div style="aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;">📷</div>
+        <div style="aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;">📷</div>
+        <div style="aspect-ratio:1;background:linear-gradient(135deg,#e5e7eb,#d1d5db);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem;">📷</div>
+      </div>
+    </section>`;
+  if(document.getElementById('secContato').checked) secoes+=`
+    <section style="padding:3rem 1.5rem;max-width:600px;margin:0 auto;text-align:center;">
+      <h2 style="font-size:1.875rem;font-weight:bold;margin-bottom:1.5rem;color:${corP}">Entre em Contato</h2>
+      <form style="text-align:left;">
+        <input type="text" placeholder="Seu nome" style="width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;">
+        <input type="email" placeholder="Seu e-mail" style="width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;">
+        <textarea rows="4" placeholder="Sua mensagem" style="width:100%;padding:0.875rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:0.5rem;"></textarea>
+        <button type="submit" style="width:100%;padding:0.875rem;border-radius:0.5rem;background:linear-gradient(90deg,${corP},${corD});color:white;font-weight:bold;border:none;margin-top:0.5rem;">Enviar Mensagem</button>
+      </form>
+    </section>`;
+
+  const codigo=`<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="${corP}">
+<title>${nome}</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+  .hero{background:linear-gradient(135deg,${corP},${corD});color:white;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;}
+  .btn{display:inline-block;padding:0.875rem 2rem;background:linear-gradient(90deg,${corP},${corD});color:white;border-radius:0.75rem;font-weight:bold;text-decoration:none;margin-top:1.5rem;}
+  footer{padding:2rem;text-align:center;color:#6b7280;border-top:1px solid #eee;margin-top:2rem;}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:bold;margin-bottom:1.5rem;">${nome}</h1>
+      <p style="font-size:clamp(1rem,2vw,1.25rem);opacity:0.95;max-width:600px;margin:0 auto;">${desc}</p>
+      <a href="#conteudo" class="btn">Conhecer Mais</a>
+    </div>
+  </header>
+  <main id="conteudo">${secoes}</main>
+  <footer>
+    <p>&copy; ${new Date().getFullYear()} ${nome}</p>
+    <p style="margin-top:0.5rem;font-size:0.875rem;">Desenvolvido com AI Creator</p>
+  </footer>
+</body>
+</html>`;
+
+  document.getElementById('codigoFinal').textContent=codigo;
+  window._codigoGerado=codigo;
+  btn.innerHTML='<i class="fa fa-magic mr-2"></i> GERAR PROJETO';
+  avancar(4);
+}
+function baixarCodigo(){
+  const blob=new Blob([window._codigoGerado],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=document.getElementById('nomeProjeto').value.replace(/\s+/g,'-').toLowerCase()+'.html';
+  a.click();
+}
+</script>
+</body>
+</html>
